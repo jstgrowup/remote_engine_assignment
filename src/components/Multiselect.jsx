@@ -1,7 +1,11 @@
 import React from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
-function MultiSelectForDevelopers({ props, developerSkills, setdeveloperSkills }) {
+export function MultiSelectForDevelopers({
+  props,
+  developerSkills,
+  setdeveloperSkills,
+}) {
   const handleSelectChange = (event, newValue) => {
     setdeveloperSkills(newValue);
   };
@@ -21,5 +25,3 @@ function MultiSelectForDevelopers({ props, developerSkills, setdeveloperSkills }
     </>
   );
 }
-
-export default MultiSelectForDevelopers;

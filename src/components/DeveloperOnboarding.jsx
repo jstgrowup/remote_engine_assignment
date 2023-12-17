@@ -4,7 +4,8 @@ import axios from "axios";
 import MultiSelectForSkills from "./MultiSelectForSkills.jsx";
 
 import Cookies from "js-cookie";
-import MultiSelectForDevelopers from "./MultiSelect.jsx";
+import { MultiSelectForDevelopers } from "./MultiSelect.jsx";
+
 
 const getSkills = async () => {
   try {
