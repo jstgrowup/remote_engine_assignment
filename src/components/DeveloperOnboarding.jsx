@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import NavbarForDevelopers from "./NavbarForDevelopers";
 import axios from "axios";
 import MultiSelectForSkills from "./MultiSelectForSkills.jsx";
-import MultiSelect from "./MultiSelect.jsx";
+
 import Cookies from "js-cookie";
+import MultiSelectForDevelopers from "./MultiSelect.jsx";
 
 const getSkills = async () => {
   try {
@@ -262,7 +263,7 @@ function DeveloperOnboarding() {
                     >
                       Tech Stack
                     </label>
-                    <MultiSelect
+                    <MultiSelectForDevelopers
                       props={[]}
                       developerSkills={developerTechStack}
                       setdeveloperSkills={setdeveloperTechStack}
@@ -275,7 +276,7 @@ function DeveloperOnboarding() {
                     >
                       Skills Used
                     </label>
-                    <MultiSelect
+                    <MultiSelectForDevelopers
                       props={[]}
                       developerSkills={developerSkills}
                       setdeveloperSkills={setdeveloperSkills}
