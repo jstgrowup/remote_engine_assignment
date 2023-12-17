@@ -20,7 +20,7 @@ function SignupForDevelopers() {
     }
     try {
       const res = await axios.post(
-        "https://remote-engine-backend.vercel.app/users/signup/developer",
+        "https://energetic-bee-poncho.cyclic.app/users/signup/developer",
         formData
       );
       if (res) {

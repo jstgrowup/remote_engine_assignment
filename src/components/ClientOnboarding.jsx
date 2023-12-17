@@ -7,7 +7,7 @@ const getAllDevelopersData = async () => {
     const {
       data: { data },
     } = await axios.get(
-      "https://remote-engine-backend.vercel.app/client/onboarding",
+      "https://energetic-bee-poncho.cyclic.app/client/onboarding",
       {
         headers: {
           Authorization: `Bearer ${Cookies.get("accessToken")}`,

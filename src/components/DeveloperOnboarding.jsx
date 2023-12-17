@@ -8,7 +8,7 @@ import MultiSelectForDevelopers from "./MultiSelect.jsx";
 const getSkills = async () => {
   try {
     const { data } = await axios.get(
-      "https://remote-engine-backend.vercel.app/onboarding/skills"
+      "https://energetic-bee-poncho.cyclic.app/onboarding/skills"
     );
     return data;
   } catch (error) {
@@ -18,7 +18,7 @@ const getSkills = async () => {
 const setOnboardingData = async (data) => {
   try {
     const result = await axios.post(
-      "https://remote-engine-backend.vercel.app/onboarding/developers",
+      "https://energetic-bee-poncho.cyclic.app/onboarding/developers",
       data,
       {
         headers: {

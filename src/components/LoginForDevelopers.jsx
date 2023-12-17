@@ -24,7 +24,7 @@ function LoginForDevelopers() {
           data: { accessToken, refreshToken },
         },
       } = await axios.post(
-        "https://remote-engine-backend.vercel.app/users/login/developer",
+        "https://energetic-bee-poncho.cyclic.app/users/login/developer",
         formData
       );
       Cookies.set("accessToken", accessToken);
