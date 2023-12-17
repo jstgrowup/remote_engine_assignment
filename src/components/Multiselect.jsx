@@ -3,8 +3,6 @@ import { Autocomplete, TextField } from "@mui/material";
 
 function MultiSelect({ props, developerSkills, setdeveloperSkills }) {
   const handleSelectChange = (event, newValue) => {
-    console.log('event:', event)
-    console.log("newValue:", newValue);
     setdeveloperSkills(newValue);
   };
 

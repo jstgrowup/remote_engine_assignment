@@ -1,8 +1,10 @@
 import React from "react";
 import NavbarForDevelopers from "./NavbarForDevelopers";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignupForDevelopers() {
+  const navigate = useNavigate();
   const [formData, setformData] = React.useState({
     email: "",
     password: "",
@@ -21,7 +23,9 @@ function SignupForDevelopers() {
         "http://localhost:8000/users/signup/developer",
         formData
       );
-      console.log("res:", res);
+      if (res) {
+        navigate("/developerslogin");
+      }
     } catch (e) {
       console.log("e:", e);
       alert(e.response.data.error);

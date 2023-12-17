@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
-
 function MultiSelectForSkills({ props, setselectedSkills, selectedSkills }) {
   const handleSelectChange = (event, newValue) => {
     setselectedSkills(newValue);
