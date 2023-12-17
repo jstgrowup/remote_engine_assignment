@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import NavbarForDevelopers from "./NavbarForDevelopers";
 import axios from "axios";
-import MultiSelectForSkills from "./MultiSelectForSkills";
-import MultiSelect from "./MultiSelect";
+import MultiSelectForSkills from "./MultiSelectForSkills.jsx";
+import MultiSelect from "./MultiSelect.jsx";
 import Cookies from "js-cookie";
 
 const getSkills = async () => {
