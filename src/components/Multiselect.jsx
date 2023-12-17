@@ -1,7 +1,7 @@
 import React from "react";
 import { Autocomplete, TextField } from "@mui/material";
 
-export function MultiSelectForDevelopers({
+export default function MultiSelectForDevelopers({
   props,
   developerSkills,
   setdeveloperSkills,
