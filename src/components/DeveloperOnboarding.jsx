@@ -7,7 +7,9 @@ import Cookies from "js-cookie";
 
 const getSkills = async () => {
   try {
-    const { data } = await axios.get("http://localhost:8000/onboarding/skills");
+    const { data } = await axios.get(
+      "https://remote-engine-backend.vercel.app/onboarding/skills"
+    );
     return data;
   } catch (error) {
     console.log("error:", error);
@@ -16,7 +18,7 @@ const getSkills = async () => {
 const setOnboardingData = async (data) => {
   try {
     const result = await axios.post(
-      "http://localhost:8000/onboarding/developers",
+      "https://remote-engine-backend.vercel.app/onboarding/developers",
       data,
       {
         headers: {

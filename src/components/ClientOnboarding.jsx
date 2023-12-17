@@ -6,11 +6,14 @@ const getAllDevelopersData = async () => {
   try {
     const {
       data: { data },
-    } = await axios.get("http://localhost:8000/client/onboarding", {
-      headers: {
-        Authorization: `Bearer ${Cookies.get("accessToken")}`,
-      },
-    });
+    } = await axios.get(
+      "https://remote-engine-backend.vercel.app/client/onboarding",
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("accessToken")}`,
+        },
+      }
+    );
     return data;
   } catch (error) {
     console.log("error:", error);
@@ -23,7 +26,7 @@ function ClientOnboarding() {
       .then((items) => setdevelopers(items))
       .catch((err) => console.log(err));
   }, []);
- 
+
   return (
     <div>
       <NavbarForClients />
