@@ -3,8 +3,32 @@ import NavbarForDevelopers from "./NavbarForDevelopers";
 import axios from "axios";
 import MultiSelectForSkills from "./MultiSelectForSkills.jsx";
 import Cookies from "js-cookie";
-import MultiSelectForDevelopers from "./MultiSelect.jsx";
+import { Autocomplete, TextField } from "@mui/material";
 
+function MultiSelectForDevelopers({
+  props,
+  developerSkills,
+  setdeveloperSkills,
+}) {
+  const handleSelectChange = (event, newValue) => {
+    setdeveloperSkills(newValue);
+  };
+
+  return (
+    <>
+      <Autocomplete
+        multiple
+        options={props ? props?.map((option) => option) : []}
+        value={developerSkills}
+        style={{ border: "black" }}
+        onChange={handleSelectChange}
+        filterSelectedOptions
+        freeSolo
+        renderInput={(params) => <TextField {...params} label={"Select"} />}
+      />
+    </>
+  );
+}
 const getSkills = async () => {
   try {
     const { data } = await axios.get(
@@ -46,11 +70,7 @@ function DeveloperOnboarding() {
     []
   );
   const [allEducationalExperience, setAllEducationalExperience] = useState([]);
-  const [professionalExperience, setprofessionalExperience] = useState({
-    companyName: "",
-    techStack: developerTechStack,
-    skillsUsed: developerSkills,
-  });
+
   const [education, seteducation] = useState({
     degreeName: "",
     schoolName: "",
@@ -87,14 +107,15 @@ function DeveloperOnboarding() {
       .catch((error) => console.log(error));
   }, [allProfessionalExperience, allEducationalExperience]);
   const submitForProfessionalExperience = () => {
-    setprofessionalExperience((item) => ({
-      ...item,
-      companyName: companyName,
-      techStack: developerTechStack,
-      skillsUsed: developerSkills,
-    }));
+    setAllprofessionalExperience((items) => [
+      ...items,
+      {
+        companyName: companyName,
+        techStack: developerTechStack,
+        skillsUsed: developerSkills,
+      },
+    ]);
 
-    setAllprofessionalExperience((items) => [...items, professionalExperience]);
     setIsSidebarOpen(!isSidebarOpen);
   };
   const submitForEducationalExperience = () => {
@@ -213,7 +234,7 @@ function DeveloperOnboarding() {
           </p>
           <div className="flex flex-col items-center gap-3">
             <div className="w-[70%] flex flex-col gap-3 ">
-              {allProfessionalExperience.length > 1
+              {allProfessionalExperience
                 ? allProfessionalExperience.map((items, index) => {
                     return (
                       <div
@@ -308,7 +329,7 @@ function DeveloperOnboarding() {
           </p>
           <div className="flex flex-col items-center gap-3">
             <div className="w-[90%] flex flex-col gap-3 ">
-              {allEducationalExperience.length > 1
+              {allEducationalExperience
                 ? allEducationalExperience.map((items, index) => {
                     return (
                       <div
