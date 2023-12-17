@@ -9,13 +9,14 @@ import SignupForClient from "./components/SignupForClient.jsx";
 import LoginForClient from "./components/LoginForClient.jsx";
 import LoginForDevelopers from "./components/LoginForDevelopers.jsx";
 import DeveloperOnboarding from "./components/DeveloperOnboarding.jsx";
+import ClientOnboarding from "./components/ClientOnboarding.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <SignupForDevelopers />,
   },
   {
-    path: "/client",
+    path: "/clientsignup",
     element: <SignupForClient />,
   },
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/developerOnboarding",
     element: <DeveloperOnboarding />,
+  },
+  {
+    path: "/client",
+    element: <ClientOnboarding />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

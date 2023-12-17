@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import NavbarForClients from "./NavbarForClients";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 function LoginForClient() {
+  const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
     password: "",
@@ -27,6 +29,7 @@ function LoginForClient() {
       );
       Cookies.set("accessToken", accessToken);
       Cookies.set("refreshToken", refreshToken);
+      navigate("/client");
     } catch (e) {
       console.log("e:", e);
       alert(e.response.data.error);
@@ -40,7 +43,7 @@ function LoginForClient() {
           <h2 className="text-2xl font-semibold mb-6">Login</h2>
           <div className="mb-4">
             <label
-              for="email"
+              htmlfor="email"
               className="block text-gray-600 text-sm font-medium mb-2"
             >
               Email
@@ -57,7 +60,7 @@ function LoginForClient() {
 
           <div className="mb-4">
             <label
-              for="password"
+              htmlfor="password"
               className="block text-gray-600 text-sm font-medium mb-2"
             >
               Password

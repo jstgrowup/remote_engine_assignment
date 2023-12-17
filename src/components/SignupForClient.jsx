@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import NavbarForClients from "./NavbarForClients";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function SignupForClient() {
+  const navigate = useNavigate();
   const [formData, setformData] = useState({
     email: "",
     password: "",
@@ -21,9 +23,11 @@ function SignupForClient() {
         "http://localhost:8000/users/signup/clients",
         formData
       );
-      console.log("res:", res);
+
+      if (res) {
+        navigate("/clientlogin");
+      }
     } catch (e) {
-      console.log("e:", e);
       alert(e.response.data.error);
     }
   };
@@ -36,7 +40,7 @@ function SignupForClient() {
 
           <div className="mb-4">
             <label
-              for="email"
+              htmlfor="email"
               className="block text-gray-600 text-sm font-medium mb-2"
             >
               Email
@@ -53,7 +57,7 @@ function SignupForClient() {
 
           <div className="mb-4">
             <label
-              for="password"
+              htmlfor="password"
               className="block text-gray-600 text-sm font-medium mb-2"
             >
               Password
